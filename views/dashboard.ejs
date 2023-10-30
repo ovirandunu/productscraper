@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-1hkRuBDRPxT/Z+Ke4yyD5AOLHy4Ck4SOF4y4Ck4C2DgHfViXydVeLm+JDMZoNw/c" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #89d7fc;
+            border-color: black;
+            border-width: 2px;
+            row-gap: 10px;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #5209683d;
+            font-family: 'Arial', sans-serif;
+        }
+
+        th {
+            background-color: #b7f793;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #576b4a;
+        }
+
+        td {
+            cursor: auto;
+            transition: background-color 0.3s;
+        }
+
+        .flag-icon {
+            margin-right: 10px;
+        }
+
+    </style>
+    <script>
+        function toggleDetails(country) {
+            const details = document.getElementById(country);
+            if (details.style.display === 'none' || !details.style.display) {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let countryName in countries) { %>
+                <tr>
+                    <td onclick="toggleDetails('<%= countryName %>')">
+                        <span class="flag"> </span> 
+                        <%= countryName %>
+                    </td>
+                    <td>
+                        <div id="<%= countryName %>" style="display: none;">
+                            <% countries[countryName].forEach(site => { %>
+                                <strong><%= site.site %></strong>
+                                <ul>
+                                <% site.items.forEach(item => { %>
+                                    <li>
+                                        Data: <%= item.data %>,
+                                        Duration: <%= item.duration %>,
+                                        Price: $<%= item.price %>
+                                    </li>
+                                <% }); %>
+                                </ul>
+                            <% }); %>
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>
