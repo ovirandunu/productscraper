@@ -39,7 +39,7 @@ class Client {
         let countryCode = getCode(data.title);
         let flagUrl = `https://www.countryflags.io/${countryCode}/flat/64.png`;
 
-        return { country: data.title, flagUrl, items };
+        return { country: data.title, countryCode, flagUrl, items };
     }
 
     async getHolafly() {
@@ -82,7 +82,7 @@ class Client {
         let countryCode = getCode(country);
         let flagUrl = `https://www.countryflags.io/${countryCode}/flat/64.png`;
 
-        return { country, flagUrl, items };
+        return { country, countryCode, flagUrl, items };
     }
 
     async getNomad() {

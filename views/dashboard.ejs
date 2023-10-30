@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-1hkRuBDRPxT/Z+Ke4yyD5AOLHy4Ck4SOF4y4Ck4C2DgHfViXydVeLm+JDMZoNw/c" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f7f9fc;
+            background-color: #F0F1F6;
             padding: 20px;
+            color: #3E4C59;
         }
 
         table {
@@ -18,20 +20,16 @@
             border-collapse: collapse;
             margin-top: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #89d7fc;
-            border-color: black;
-            border-width: 2px;
-            row-gap: 10px;
+            background-color: #ffffff;
         }
 
         th, td {
             padding: 15px 20px;
-            border-bottom: 1px solid #5209683d;
-            font-family: 'Arial', sans-serif;
+            border-bottom: 1px solid #E3E8EE;
         }
 
         th {
-            background-color: #b7f793;
+            background-color: #DCE6F1;
             text-transform: uppercase;
             font-weight: bold;
         }
@@ -41,16 +39,28 @@
         }
 
         tr:hover {
-            background-color: #576b4a;
+            background-color: #f5f5f5;
         }
 
         td {
-            cursor: auto;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        .flag-icon {
-            margin-right: 10px;
+        .plans-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .plan {
+            flex: 1;
+            min-width: calc(33.333% - 10px);
+            background-color: #EFF2F7;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
     </style>
@@ -65,9 +75,8 @@
         }
     </script>
 </head>
-
 <body>
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>Country</th>
@@ -78,23 +87,27 @@
             <% for(let countryName in countries) { %>
                 <tr>
                     <td onclick="toggleDetails('<%= countryName %>')">
-                        <span class="flag"> </span> 
+                        
                         <%= countryName %>
                     </td>
                     <td>
                         <div id="<%= countryName %>" style="display: none;">
-                            <% countries[countryName].forEach(site => { %>
-                                <strong><%= site.site %></strong>
-                                <ul>
-                                <% site.items.forEach(item => { %>
-                                    <li>
-                                        Data: <%= item.data %>,
-                                        Duration: <%= item.duration %>,
-                                        Price: $<%= item.price %>
-                                    </li>
+                            <div class="plans-container">
+                                <% countries[countryName].forEach(site => { %>
+                                    <div class="plan">
+                                        <strong><%= site.site %></strong>
+                                        <ul>
+                                            <% site.items.forEach(item => { %>
+                                                <li>
+                                                    Data: <%= item.data %>,
+                                                    Duration: <%= item.duration %>,
+                                                    Price: $<%= item.price %>
+                                                </li>
+                                            <% }); %>
+                                        </ul>
+                                    </div>
                                 <% }); %>
-                                </ul>
-                            <% }); %>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -102,5 +115,5 @@
         </tbody>
     </table>
 </body>
-
 </html>
+
