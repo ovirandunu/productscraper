@@ -13,21 +13,25 @@
         }
 
         .table-container {
-            height: 600px; /* Increased height */
+            height: 600px;
             overflow-y: auto;
             position: relative;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             background-color: #ffffff;
             position: relative;
+            border-radius: 8px; /* Rounded corners */
         }
 
         th, td {
             padding: 15px 20px;
-            border: 1px solid #ccc; /* Added border */
+            border: 1px solid #ccc;
         }
 
         th {
@@ -49,14 +53,18 @@
         }
 
         .has-data {
-            background-color: #d9f9d9; /* Different color for cells with data */
-        }
+            background-color: #d9f9d9;
+        } 
 
         .nested-table {
-            width: 100%;
+            width: 90%; /* Reduced width */
             border-collapse: collapse;
             background-color: #f1f1f1;
             margin-top: 10px;
+            margin-left: 20px; /* Indentation */
+            border-radius: 4px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+            text-transform: capitalize;
         }
 
         .nested-table th, .nested-table td {
@@ -66,8 +74,8 @@
 
         .nested-table th {
             background-color: #e1e1e1;
-            text-transform: uppercase;
-            font-weight: bold;
+            text-transform: capitalize;
+            font-weight: normal;
         }
     </style>
     <script>
