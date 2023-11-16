@@ -107,6 +107,7 @@
                     <tr>
                         <td onclick="toggleDetails('<%= countryName %>')">
                             <%= countryName %>
+                            
                         </td>
                         <% countries[countryName].forEach((site, index) => { %>
                             <td class="<%= site.items.length > 0 ? 'has-data' : '' %>">
