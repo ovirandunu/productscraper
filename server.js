@@ -1,5 +1,5 @@
 const express = require('express');
-const { Client } = require('./scrape'); // Assuming scrape.js exports the Client class
+const { Client } = require('./scrape'); 
 const app = express();
 const PORT = 3000;
 

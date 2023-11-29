@@ -37,9 +37,8 @@ class Client {
         });
 
         let countryCode = getCode(data.title);
-        let flagUrl = `https://www.countryflags.io/${countryCode}/flat/64.png`;
 
-        return { country: data.title, countryCode, flagUrl, items };
+        return { country: data.title, countryCode, items };
     }
 
     async getHolafly() {
@@ -80,9 +79,8 @@ class Client {
         });
 
         let countryCode = getCode(country);
-        let flagUrl = `https://www.countryflags.io/${countryCode}/flat/64.png`;
 
-        return { country, countryCode, flagUrl, items };
+        return { country, countryCode, items };
     }
 
     async getNomad() {
@@ -114,7 +112,7 @@ class Client {
             }
         }
 
-        // Sorting countries alphabetically
+        
         countries.sort((a, b) => a.country.localeCompare(b.country));
 
         return { site: 'getnomad.app', countries };
