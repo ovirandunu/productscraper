@@ -1,10 +1,10 @@
-# Web Scraping and Dashboard Project
+# Node.js dashboard for "Roaming Sim-Plans" using axios for web-scraping
 
 ## Project Description
 
 This project is a web scraping application designed to gather roaming SIM plans from three different websites: Airalo, Holafly, and Nomad. It automates the process of extracting data about various data plans, including pricing and coverage, and then displays this information in an easy-to-navigate web dashboard. The purpose is to provide a consolidated view of roaming SIM options available in different countries.
 
-![Project Dashboard](productscraper\images\main_table.png)
+![Project Dashboard](\images\main_table.png)
 *Screenshot of the project dashboard. Note: the rows must be clicked to expand and display a nested table with the specific data*
 
 ## Installation
