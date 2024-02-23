@@ -1,4 +1,4 @@
-# Node.js dashboard for "Roaming Sim-Plans" using axios for web-scraping
+# ProductScraper is a Node.js based dashboard for scraping and analyzing "Roaming Sim-Plans" using axios
 
 ## Project Description
 
